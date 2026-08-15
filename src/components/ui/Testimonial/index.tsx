@@ -14,9 +14,14 @@ type TestimonialProps = {
 
 function Testimonial(props: TestimonialProps) {
   return (
-    <article className="flex flex-col mx-2 my-4 max-w-sm rounded-sm bg-white p-4 shadow-lg dark:bg-gray-900">
+    <article className="flex flex-col mx-2 my-4 max-w-sm rounded-lg bg-gray-50 p-4 shadow-lg dark:bg-gray-700 dark:shadow-none">
       <div className="flex items-center gap-3 mb-4">
-        <div className="m-2">
+        <img
+          src={`${props.avatar}`}
+          alt="user avatar"
+          className="h-16 w-16 shrink-0 rounded-full object-cover"
+        />
+        <div>
           <div className="flex items-center gap-2">
             <h3 className="text-lg font-bold">{props.name}</h3>
             <Icon icon={`logos:${props.social}`} className="text-2xl" />
@@ -25,11 +30,8 @@ function Testimonial(props: TestimonialProps) {
             {props.handle}
           </a>
         </div>
-        <div className="order-first">
-          <img src={`${props.avatar}`} alt="user avatar" className="h-fit w-fit max-w-16 max-h-16 rounded-full" />
-        </div>
       </div>
-      <div className="mt-2 mb-4 truncate">
+      <div className="mt-2 mb-4">
         <p className="whitespace-normal text-gray-900 dark:text-gray-300 leading-snug mb-2">{props.description}</p>
         {props.featuredlink && <a target="_blank" href={props.featuredlink}>{props.featuredlink}</a>}
       </div>
